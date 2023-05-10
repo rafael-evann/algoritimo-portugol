@@ -1,5 +1,7 @@
 programa
 {
+	inclua biblioteca Sons
+	inclua biblioteca Util 
 
     funcao inicio()
     {
@@ -13,7 +15,7 @@ programa
     inteiro PIN=200333
     
     cadeia nomeCandidato1="Manel Gomes"
-    cadeia nomeCandidato2="Cristiano Ronaldo"
+    cadeia nomeCandidato2="Estevam Ferreiraa"
     cadeia nomeCandidato3="Cleiton Rasta"
     cadeia ganhador=""
 
@@ -29,7 +31,9 @@ programa
     
     logico
     
-    opcaoInvalida =falso,empate=falso 
+    encerraVotacao=falso,
+    opcaoInvalida =falso,
+    empate=falso 
     
     faca{
     			
@@ -51,31 +55,31 @@ programa
         
             {            
             caso 1:
-            escreva("Você votou no canditado 1")
+            somConfirmacao()
             candidato1++
             votostotais++
             pare 
 
             caso 2:
-            escreva("Você no canditato2")
+            somConfirmacao()
             candidato2++
             votostotais++
             pare 
 
             caso 3:
-            escreva("você votou no canditato3")
+            somConfirmacao()
             candidato3++
             votostotais++
             pare 
 
             caso 9:
-            escreva("Você voltou em branco")
+            somConfirmacao()
             votoEmBranco++
             votostotais++
             pare 
 
             caso 8:
-            escreva("Você voltou nulo ")
+            somConfirmacao()
             votoNulo++
             votostotais++
             pare 
@@ -87,7 +91,7 @@ programa
             leia(confirmaEncerramento)
 
             se(confirmaEncerramento == 's' ou confirmaEncerramento =='S'){
-            	encerraVotacao= verdadeiro
+            encerraVotacao= verdadeiro
             }		
             pare
             
@@ -97,17 +101,22 @@ programa
     	
             
 
-        }enquanto(con != 'S'ou PIN !=200333)
-           
+        }enquanto(confirmaEncerramento == 'N')
 
-    }
+	    }
+	    funcao somConfirmacao()
+	    {
+		    inteiro somUrna=Sons.carregar_som("Audio/desafios-urna-eletronica_audio_confirma-urna.mp3")
+		    Sons.reproduzir_som(somUrna, falso)
+		    Util.aguarde(2000)
+	    }
 }
 /* $$$ Portugol Studio $$$ 
  * 
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 2299; 
+ * @POSICAO-CURSOR = 383; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
